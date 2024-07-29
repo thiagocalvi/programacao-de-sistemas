@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAXIMO 6400
-#define BITS_POR_INT 32
+const int MAXIMO = 6400;
+const int BITS_POR_INT = 32;
 
 
 void criaTabalaPrimos(unsigned int *tabelaPrimos) {
@@ -31,6 +31,18 @@ int ehPrime(unsigned int *tabelaPrimos, int num){
     return (tabelaPrimos[num / BITS_POR_INT] & (1U << (num % BITS_POR_INT))) != 0;
 }
 
+// Imprime a tabela de primos
+void imprimeTabalaPrimos(unsigned int *primeTable, int max) {
+    printf("Números primos até %d:\n", max);
+    for (int i = 2; i <= max; i++) {
+        if (ehPrime(primeTable, i)) {
+            printf("%d ", i);
+        }
+    }
+    printf("\n");
+}
+
+
 int main(){
     unsigned int *tabelaPrimos = (unsigned int *)malloc((MAXIMO / BITS_POR_INT + 1) * sizeof(unsigned int));
     
@@ -40,6 +52,7 @@ int main(){
     }
 
     criaTabalaPrimos(tabelaPrimos);
+    imprimeTabalaPrimos(tabelaPrimos, MAXIMO);
 
     int num;
     printf("Digite um número entre 0 e 6400 para verificar se é primo: ");
