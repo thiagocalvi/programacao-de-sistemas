@@ -2,6 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 
+void criaTabalaPrimos(unsigned int *tabelaPrimos);
+int ehPrime(unsigned int *tabelaPrimos, int num);
+void imprimeTabalaPrimos(unsigned int *primeTable, int max);
+
+
 const int MAXIMO = 6400;
 const int BITS_POR_INT = 32;
 

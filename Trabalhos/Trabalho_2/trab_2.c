@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <math.h>
 
+float newtonSqrt(float A);
+
 //União para manipular diretamente os bits do float
 typedef union {
     float x;
